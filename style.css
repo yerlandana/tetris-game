@@ -1,0 +1,82 @@
+body {
+    background-image: "space.jpg";
+}
+
+.wrap {
+    margin: 15% auto 0;
+    width: 220px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.stopwatch {
+    width: 210px;
+    padding: 10px;
+    height: 60px;
+    font-size: 60px;
+    overflow: hidden;
+    position: relative;
+}
+
+.time_item {
+    position: absolute;
+    width: 30px;
+    top:0;
+    animation-play-state: paused;
+}
+
+.minutes_1 {
+    left: 5%;
+    animation: minutes 3600s steps(6, end) infinite;
+}
+
+.minutes_2 {
+    left: 20%;
+    animation: seconds 600s steps(10, end) infinite;
+}
+
+.seconds_1 {
+    left: 50%;
+    animation: minutes 60s steps(6, end) infinite;
+}
+
+.seconds_2 {
+    left: 70%;
+    animation: seconds 10s steps(10, end) infinite;
+}
+
+.conrol_panel {
+    font-size: 18px;
+    margin-left: 400px;
+}
+
+.conrol_panel label {
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+@keyframes minutes {
+    from {top: 0%;}
+    to {top: -504px}
+}
+
+@keyframes seconds {
+    from {top: 0%;}
+    to {top: -720px}
+}
+
+
+#start:checked ~ .time_item{
+    animation-play-state: running;
+}
+ 
+#stop:checked  ~ .time_item {
+   animation-play-state: paused;
+}
+#reset:checked ~ .time_item {
+   animation: none;
+}
